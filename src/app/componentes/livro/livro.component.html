@@ -7,7 +7,7 @@
     <p class="informacoes">Autoria:</p>
     <p class="resultado">{{ livro.authors }}</p>
     <p class="informacoes">Data de publicação:</p>
-    <p class="resultado">{{ livro.publishedDate }}</p>
+    <p class="resultado">{{ livro.publishedDate | date:'dd/MM/yyyy' }}</p>
     <p class="informacoes">Editora:</p>
     <p class="resultado">{{ livro.publisher }}</p>
     <button (click)="onModalChange(true)">Mais detalhes</button>
