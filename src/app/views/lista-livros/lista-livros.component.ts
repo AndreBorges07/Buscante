@@ -1,7 +1,7 @@
 import { FormControl } from '@angular/forms';
-import { Item } from './../../models/interfaces';
+import { Item, LivrosResultado } from './../../models/interfaces';
 import { Component } from '@angular/core';
-import { debounceTime, distinctUntilChanged, filter, map, switchMap, tap } from 'rxjs';
+import { catchError, debounceTime, distinctUntilChanged, EMPTY, filter, map, of, switchMap, tap, throwError } from 'rxjs';
 import { LivroVolumeInfo } from 'src/app/models/livroVolumeInfo';
 import { LivroService } from 'src/app/service/livro.service';
 
@@ -13,8 +13,26 @@ import { LivroService } from 'src/app/service/livro.service';
 export class ListaLivrosComponent{
 
   campoBusca = new FormControl(); //Serve para fazer a busca no campo de busca.
+  mensagemErro = '';
+  LivrosResultado: LivrosResultado;
 
   constructor(private service: LivroService) { }
+
+  totalDeLivros$ = this.campoBusca.valueChanges.pipe(
+      debounceTime(300), //Tempo de espera para fazer a busca.
+      filter((valorDigitado) => valorDigitado.length >= 3), //Faz a busca a partir de 3 caracteres digitados.
+      tap(() => console.log('Digitou')),
+      distinctUntilChanged(), //Não faz a busca se o valor digitado for igual ao anterior.
+      switchMap(valorDigitado => this.service.buscar(valorDigitado)), //switchMap serve para cancelar a requisição anterior e fazer uma nova requisição.
+      map(resultado => this.LivrosResultado = resultado),
+      catchError((erro)=> {
+        // this.mensagemErro = 'Erro ao buscar livros. Recarregue a página e tente novamente.'
+        // return EMPTY
+        console.log(erro);
+        return of();
+
+      })
+  )
 
   //O $ no final do nome da variável é uma convenção para dizer que é um observable.
   livrosEncontrados$ = this.campoBusca.valueChanges.pipe(
@@ -25,7 +43,16 @@ export class ListaLivrosComponent{
     switchMap(valorDigitado => this.service.buscar(valorDigitado)), //switchMap serve para cancelar a requisição anterior e fazer uma nova requisição.
 
     tap((retornoAPI) => console.log(retornoAPI)),
-    map(itens => this.livrosResultadoParaLivros(itens))
+    map(resultado => resultado.items ?? []),
+    map(itens => this.livrosResultadoParaLivros(itens)),
+    catchError((erro)=> {
+      // this.mensagemErro = 'Erro ao buscar livros. Recarregue a página e tente novamente.'
+      // return EMPTY
+      console.log(erro);
+      return throwError(() => new Error(this.mensagemErro ='Erro ao buscar livros. Recarregue a página e tente novamente.'));
+
+    }
+    )
 
   )
 
