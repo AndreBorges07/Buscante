@@ -7,7 +7,7 @@ export interface Livro {
   publishedDate?: string;
   description?: string;
   previewLink?: string;
-  thumbmail?: ImageLinks;
+  thumbnail?: ImageLinks;
 
 }
 
