@@ -12,8 +12,11 @@ export class LivroService {
   // https://developers.google.com/books/docs/overview?hl=pt-br
   constructor(private http: HttpClient) { }
 
-  buscar(valorDigitado: string): Observable <LivrosResultado> {
-    const params = new HttpParams().append('q', valorDigitado);
+  buscar(valorDigitado: string, pagina: number = 0, itensPorPagina: number = 10): Observable <LivrosResultado> {
+    const params = new HttpParams()
+      .append('q', valorDigitado)
+      .append('startIndex', (pagina * itensPorPagina).toString())
+      .append('maxResults', itensPorPagina.toString());
     return this.http.get<LivrosResultado>(this.API, {params})
   }
 }

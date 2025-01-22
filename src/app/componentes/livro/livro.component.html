@@ -9,8 +9,8 @@
     <p class="informacoes">Data de publicação:</p>
     <p class="resultado">{{ livro.publishedDate | date:'dd/MM/yyyy' }}</p>
     <p class="informacoes">Editora:</p>
-    <!-- <p class="resultado">{{ livro.publisher.length > 20 ? (livro.publisher | slice:0:20) + '...' : livro.publisher }}</p> -->
     <p class="resultado">{{ livro.publisher }}</p>
+    <!-- <p class="resultado">{{ livro.publisher.length ? (livro.publisher.length > 20 ? (livro.publisher | slice:0:20) + '...' : livro.publisher) : 'nada' }}</p> -->
     <button (click)="onModalChange(true)">Mais detalhes</button>
   </div>
 </div>

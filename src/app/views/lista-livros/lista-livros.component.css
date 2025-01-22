@@ -120,6 +120,45 @@ section button {
   margin-left: 64px;
 }
 
+.navegacao {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.navegacao-botoes {
+  display: flex;
+  gap: 10px;
+}
+
+
+.navegacao button {
+  background: #6C63FF;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.navegacao button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.contador-pagina {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+
+
 
 
 
