@@ -26,7 +26,7 @@ section input {
   outline: 0;
   box-sizing: border-box;
   top: 220px;
-  background: url(../../../assets/imagens/logo-google.png);
+  /* background: url(../../../assets/imagens/logo-google.png); */
   background-repeat: no-repeat;
   background-position-y: center;
   background-position-x: 4.08%;
@@ -36,6 +36,10 @@ section input {
   font-size: 16px;
   line-height: 24px;
   padding-left: 20px;
+}
+
+input::placeholder {
+  color: #b3b3b3; /* Cor cinza claro */
 }
 
 section p {
