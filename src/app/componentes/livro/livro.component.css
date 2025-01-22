@@ -39,7 +39,7 @@ img {
   font-weight: 600;
   font-size: 20px;
   line-height: 30px;
-  color: #6C63FF;
+  color: #F29979;
 }
 
 .informacoes {
@@ -61,7 +61,7 @@ img {
 }
 
 button {
-  background: #6C63FF;
+  background: #F29979;
   width: 156px;
   height: 40px;
   border-radius: 8px;

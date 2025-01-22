@@ -1,5 +1,5 @@
 header {
-  background-color: #050C42;
+  background-color: #734939;
   height: 96px;
   width: 100%;
   display: flex;
@@ -21,7 +21,7 @@ header a {
 }
 
 button {
-  background-color: #050C42;
+  background-color: #734939;
   cursor: pointer;
   border: none;
 }

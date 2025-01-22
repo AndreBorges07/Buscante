@@ -7,7 +7,7 @@ section {
 }
 
 header {
-  color: #6C63FF;
+  color: #F29979;
   font-style: normal;
   font-weight: 600;
   font-size: 24px;
@@ -21,7 +21,7 @@ header {
 section input {
   width: 588px;
   height: 56px;
-  border: 2px solid #6C63FF;
+  border: 2px solid #F29979;
   border-radius: 10px;
   outline: 0;
   box-sizing: border-box;
@@ -60,7 +60,7 @@ section p {
 }
 
 .mensagem-erro {
-  color: #6C63FF;
+  color: #F29979;
 }
 
 input[type='search']:focus {
@@ -136,7 +136,7 @@ section button {
 
 
 .navegacao button {
-  background: #6C63FF;
+  background: #F29979;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
