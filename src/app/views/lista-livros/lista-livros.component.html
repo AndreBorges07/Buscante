@@ -33,22 +33,13 @@
   </ng-template>
 </section>
 <!-- Navegação -->
-  <div class="navegacao" *ngIf="totalDeLivros$ | async">
+  <div class="navegacao" *ngIf="totalPaginas>0" >
     <div class="contador-pagina">
       Página {{ paginaAtual +1 }} de {{ totalPaginas }}
     </div>
     <div class="navegacao-botoes">
       <button (click)="paginaAnterior()" [disabled]="paginaAtual === 0">Página Anterior</button>
       <button (click)="proximaPagina()" [disabled]="(paginaAtual + 1) * itensPorPagina >= LivrosResultado?.totalItems">Próxima Página</button>
-      <!-- <button (click)="paginaAnterior()" [disabled]="paginaAtual === 0">
-        Página Anterior
-      </button>
-      <button
-        (click)="proximaPagina()"
-        [disabled]="(paginaAtual + 1) >= totalPaginas"
-      >
-        Próxima Página
-      </button> -->
     </div>
   </div>
 
