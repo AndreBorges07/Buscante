@@ -4,6 +4,12 @@
   filter: drop-shadow(2px 2px 8px rgba(0, 0, 0, 0.2));
   margin: 24px;
   border-radius: 8px 0px 0px 8px;
+  transition: filter 0.3s ease;
+}
+
+.card:hover {
+  filter: drop-shadow(4px 4px 12px rgba(0, 0, 0, 0.4));
+  transition: filter 0.3s ease;
 }
 
 img {
