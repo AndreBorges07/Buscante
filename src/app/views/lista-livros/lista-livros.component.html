@@ -33,7 +33,7 @@
   </ng-template>
 </section>
 <!-- Navegação -->
-  <div class="navegacao">
+  <div class="navegacao" *ngIf="totalDeLivros$ | async">
     <div class="contador-pagina">
       Página {{ paginaAtual +1 }} de {{ totalPaginas }}
     </div>
