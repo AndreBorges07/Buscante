@@ -18,7 +18,7 @@ export class ListaLivrosComponent{
 
   constructor(private service: LivroService) { }
 
-  totalDeLivros$ = this.campoBusca.valueChanges.pipe(
+  totalDeLivros$ = this.campoBusca.valueChanges.pipe( //serve para contar o total de livros encontrados.
       debounceTime(300), //Tempo de espera para fazer a busca.
       filter((valorDigitado) => valorDigitado.length >= 3), //Faz a busca a partir de 3 caracteres digitados.
       tap(() => console.log('Digitou')),
@@ -26,8 +26,6 @@ export class ListaLivrosComponent{
       switchMap(valorDigitado => this.service.buscar(valorDigitado)), //switchMap serve para cancelar a requisição anterior e fazer uma nova requisição.
       map(resultado => this.LivrosResultado = resultado),
       catchError((erro)=> {
-        // this.mensagemErro = 'Erro ao buscar livros. Recarregue a página e tente novamente.'
-        // return EMPTY
         console.log(erro);
         return of();
 
@@ -36,18 +34,16 @@ export class ListaLivrosComponent{
 
   //O $ no final do nome da variável é uma convenção para dizer que é um observable.
   livrosEncontrados$ = this.campoBusca.valueChanges.pipe(
-    debounceTime(300), //Tempo de espera para fazer a busca.
-    filter((valorDigitado) => valorDigitado.length >= 3), //Faz a busca a partir de 3 caracteres digitados.
-    tap(() => console.log('Digitou')),
-    distinctUntilChanged(), //Não faz a busca se o valor digitado for igual ao anterior.
-    switchMap(valorDigitado => this.service.buscar(valorDigitado)), //switchMap serve para cancelar a requisição anterior e fazer uma nova requisição.
+    debounceTime(300),
+    filter((valorDigitado) => valorDigitado.length >= 3),
 
-    tap((retornoAPI) => console.log(retornoAPI)),
-    map(resultado => resultado.items ?? []),
+    distinctUntilChanged(),
+    switchMap(valorDigitado => this.service.buscar(valorDigitado)),
+
+    map(resultado => resultado.items ?? []), //esse ?? [] serve para caso o resultado seja nulo, ele retorna um array vazio.
     map(itens => this.livrosResultadoParaLivros(itens)),
     catchError((erro)=> {
       // this.mensagemErro = 'Erro ao buscar livros. Recarregue a página e tente novamente.'
-      // return EMPTY
       console.log(erro);
       return throwError(() => new Error(this.mensagemErro ='Erro ao buscar livros. Recarregue a página e tente novamente.'));
 

@@ -9,16 +9,11 @@ import { Item, LivrosResultado } from '../models/interfaces';
 export class LivroService {
 
   private readonly API = 'https://www.googleapis.com/books/v1/volumes';
-  // https://www.googleapis.com/books/v1/volumes?q=search+terms
+  // https://developers.google.com/books/docs/overview?hl=pt-br
   constructor(private http: HttpClient) { }
 
   buscar(valorDigitado: string): Observable <LivrosResultado> {
     const params = new HttpParams().append('q', valorDigitado);
     return this.http.get<LivrosResultado>(this.API, {params})
-    // .pipe(
-    //   // tap(retornoAPI => console.log('Fluxo do tamp ', retornoAPI)), //tap serve de apoio no momento de debugar.
-    //   map(resultado => resultado.items ?? []), //Se não tiver resultado, retorna um array vazio.
-    //   // tap(resultado=> console.log('Fluxo do map', resultado))
-    // );
   }
 }
