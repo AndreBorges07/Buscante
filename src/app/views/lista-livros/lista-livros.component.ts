@@ -41,6 +41,8 @@ export class ListaLivrosComponent{
     switchMap(valorDigitado => this.service.buscar(valorDigitado)),
 
     map(resultado => resultado.items ?? []), //esse ?? [] serve para caso o resultado seja nulo, ele retorna um array vazio.
+    tap((retornoAPI) => console.log(retornoAPI)),
+
     map(itens => this.livrosResultadoParaLivros(itens)),
     catchError((erro)=> {
       // this.mensagemErro = 'Erro ao buscar livros. Recarregue a página e tente novamente.'
