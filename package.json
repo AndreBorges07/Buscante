@@ -6,9 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "predeploy": "ng build --configuration production",
-    "deploy": "gh-pages -d dist/buscante"
+    "test": "ng test"
+
   },
   "private": true,
   "dependencies": {
