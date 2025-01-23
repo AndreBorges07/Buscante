@@ -1,27 +1,29 @@
 # Buscante
+![Status-Concluído-green](https://user-images.githubusercontent.com/93163125/210287743-09caa864-8da5-449e-b864-deb864513652.svg)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.3.
+![Cabveçalho](https://github.com/user-attachments/assets/4550e981-72ca-4df1-b011-3e4d1f597b4c)
+![fotoSite](https://github.com/user-attachments/assets/d35ea6be-ba7d-4730-a3b7-5fab2f697c4d)
 
-## Development server
+# Descrição
+Projeto faz uma consulta da API do "Google Books" (https://developers.google.com/books/docs/overview?hl=pt-br) para exibição de uma lista de seus livros, onde a consulta pode ser feita por qualquer palavra na busca de um livro, desde título, autor, etc. Praticando os conhecimentos em RxJS
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+# Tecnologias utilizadas
 
-## Code scaffolding
+<div align="center">
+<img src="https://user-images.githubusercontent.com/93163125/231504717-ab92fcc6-1ca5-49f3-980c-cb38b31590ef.png" width ="200px" />
+</div>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Aprendizado
 
-## Build
+  <ul>
+        <li>Programação reativa</li>
+        <li>Ciclo do observable</li>
+        <li>Operadores RxJS</li>
+        <li>Pipes do Angular</li>
+        <li>Otimizando a busca com RxJS</li>
+        <li>Tratamento de erros</li>
+    </ul>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# Certificados: 
+<b>RxJS e Angular: programando de forma reativa</b><br>
+Acesse aqui: https://cursos.alura.com.br/certificate/andreBorges07/rxjs-angular-programando-forma-reativa
